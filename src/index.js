@@ -9,12 +9,16 @@ import "./assets/sass/light-bootstrap-dashboard-react.scss?v=1.3.0";
 import "./assets/css/demo.css";
 import "./assets/css/pe-icon-7-stroke.css";
 
-import AdminLayout from "layouts/Admin.jsx";
+import AdminLayout from "layouts/Admin";
+import HomeLayout from "layouts/Home";
+import LoginLayout from "layouts/Login";
 
 ReactDOM.render(
   <BrowserRouter>
     <Switch>
       <Route path="/admin" render={(props) => <AdminLayout {...props} />} />
+      <Route path="/home" render={(props) => <HomeLayout {...props} />} />
+      <Route path="/login" render={(props) => <LoginLayout {...props} />} />
       <Redirect from="/" to="/admin/dashboard" />
     </Switch>
   </BrowserRouter>,
