@@ -1,20 +1,3 @@
-/*!
-
-=========================================================
-* Light Bootstrap Dashboard React - v1.3.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/light-bootstrap-dashboard-react
-* Copyright 2019 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/light-bootstrap-dashboard-react/blob/master/LICENSE.md)
-
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-*/
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import NotificationSystem from "react-notification-system";
@@ -38,10 +21,10 @@ class Admin extends Component {
       image: image,
       color: "black",
       hasImage: true,
-      fixedClasses: "dropdown show-dropdown open"
+      fixedClasses: "dropdown show-dropdown open",
     };
   }
-  handleNotificationClick = position => {
+  handleNotificationClick = (position) => {
     var color = Math.floor(Math.random() * 4 + 1);
     var level;
     switch (color) {
@@ -70,16 +53,16 @@ class Admin extends Component {
       ),
       level: level,
       position: position,
-      autoDismiss: 15
+      autoDismiss: 15,
     });
   };
-  getRoutes = routes => {
+  getRoutes = (routes) => {
     return routes.map((prop, key) => {
       if (prop.layout === "/admin") {
         return (
           <Route
             path={prop.layout + prop.path}
-            render={props => (
+            render={(props) => (
               <prop.component
                 {...props}
                 handleClick={this.handleNotificationClick}
@@ -93,7 +76,7 @@ class Admin extends Component {
       }
     });
   };
-  getBrandText = path => {
+  getBrandText = (path) => {
     for (let i = 0; i < routes.length; i++) {
       if (
         this.props.location.pathname.indexOf(
@@ -105,13 +88,13 @@ class Admin extends Component {
     }
     return "Brand";
   };
-  handleImageClick = image => {
+  handleImageClick = (image) => {
     this.setState({ image: image });
   };
-  handleColorClick = color => {
+  handleColorClick = (color) => {
     this.setState({ color: color });
   };
-  handleHasImage = hasImage => {
+  handleHasImage = (hasImage) => {
     this.setState({ hasImage: hasImage });
   };
   handleFixedClick = () => {
@@ -142,7 +125,7 @@ class Admin extends Component {
       default:
         break;
     }
-    _notificationSystem.addNotification({
+    /* _notificationSystem.addNotification({
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
@@ -152,8 +135,8 @@ class Admin extends Component {
       ),
       level: level,
       position: "tr",
-      autoDismiss: 15
-    });
+      autoDismiss: 15,
+    }); */
   }
   componentDidUpdate(e) {
     if (
@@ -173,9 +156,13 @@ class Admin extends Component {
     return (
       <div className="wrapper">
         <NotificationSystem ref="notificationSystem" style={style} />
-        <Sidebar {...this.props} routes={routes} image={this.state.image}
-        color={this.state.color}
-        hasImage={this.state.hasImage}/>
+        <Sidebar
+          {...this.props}
+          routes={routes}
+          image={this.state.image}
+          color={this.state.color}
+          hasImage={this.state.hasImage}
+        />
         <div id="main-panel" className="main-panel" ref="mainPanel">
           <AdminNavbar
             {...this.props}
@@ -183,7 +170,7 @@ class Admin extends Component {
           />
           <Switch>{this.getRoutes(routes)}</Switch>
           <Footer />
-          <FixedPlugin
+          {/* <FixedPlugin
             handleImageClick={this.handleImageClick}
             handleColorClick={this.handleColorClick}
             handleHasImage={this.handleHasImage}
@@ -192,7 +179,7 @@ class Admin extends Component {
             mini={this.state["mini"]}
             handleFixedClick={this.handleFixedClick}
             fixedClasses={this.state.fixedClasses}
-          />
+          /> */}
         </div>
       </div>
     );
