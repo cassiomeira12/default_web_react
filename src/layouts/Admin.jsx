@@ -125,7 +125,7 @@ class Admin extends Component {
       default:
         break;
     }
-    /* _notificationSystem.addNotification({
+    _notificationSystem.addNotification({
       title: <span data-notify="icon" className="pe-7s-gift" />,
       message: (
         <div>
@@ -136,7 +136,7 @@ class Admin extends Component {
       level: level,
       position: "tr",
       autoDismiss: 15,
-    }); */
+    });
   }
   componentDidUpdate(e) {
     if (
